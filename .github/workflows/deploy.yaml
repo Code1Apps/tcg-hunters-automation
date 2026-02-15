@@ -1,0 +1,28 @@
+name: Project Deployment
+
+on:
+  push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download project from git
+        uses: actions/checkout@v4
+      - name: Deploy project with SSH
+        uses: easingthemes/ssh-deploy@v5.1.0
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_ID_RSA }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_SSH_USER }}
+          REMOTE_PORT: ${{ secrets.REMOTE_SSH_PORT }}
+          EXCLUDE: "/node_modules/"
+          TARGET: "/var/www/auto.tcghunters.com/"
+          SCRIPT_AFTER: |
+            chmod +x /var/www/auto.tcghunters.com/
+            echo "${{ github.ref_name }}" > /var/www/auto.tcghunters.com/version.txt
+            npm install
+          SCRIPT_AFTER_REQUIRED: true

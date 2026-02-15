@@ -1,0 +1,48 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Scraper (Test Mode)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--mode",
+                "test"
+            ],
+            "python": "${workspaceFolder}/venv/Scripts/python.exe",
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Scraper (Live Mode)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--mode",
+                "live",
+                "--url",
+                "${input:url}"
+            ],
+            "python": "${workspaceFolder}/venv/Scripts/python.exe",
+            "justMyCode": true
+        },
+        {
+            "name": "n8n: Start Server",
+            "type": "node",
+            "request": "launch",
+            "command": "npm start",
+            "console": "integratedTerminal"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "url",
+            "type": "promptString",
+            "description": "Enter the URL to scrape",
+            "default": "https://example.com"
+        }
+    ]
+}

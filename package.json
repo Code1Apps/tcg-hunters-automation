@@ -1,0 +1,19 @@
+{
+  "name": "tcg-hunters-automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "scrape:bulbapedia": "node src/bulbapedia_scraper.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "dotenv": "^17.3.1",
+    "n8n": "^2.7.5",
+    "node-fetch": "^2.6.12"
+  }
+}
