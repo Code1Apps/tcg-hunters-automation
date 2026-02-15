@@ -53,6 +53,7 @@ async function main() {
   // find header row: a <th> that contains 'No' or 'Number', otherwise first <tr> with <th>
   let colMap = {};
   $(headersRow).find('th').each((i, el) => {
+    if ($(el).css('display') === 'none') return;
     const txt = $(el).text().trim().toLowerCase();
     if (txt.includes('no') || txt.includes('number')) colMap.number = i;
     else if (txt.includes('name') || txt.includes('card')) colMap.name = i;
