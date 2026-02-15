@@ -30,10 +30,6 @@ async function main() {
   const text = await res.text();
   console.log('Response Http Code:', res.status);
 
-  const htmlPath = path.join(outDir, 'bulbapedia_page.html');
-  fs.writeFileSync(htmlPath, text, { encoding: 'utf8' });
-  console.log('Saved Bulbapedia HTML to:', htmlPath);
-
   if (res.status !== 200) {
     console.error('Non-200 response, aborting parse');
     return;
