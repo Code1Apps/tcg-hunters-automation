@@ -17,7 +17,7 @@ async function main() {
   if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
 
   const apiRepo = new ApiRepo();
-  const task = await apiRepo.getExpansionNewCardsTask();
+  const task = await apiRepo.getExpansionNewCardsTask("pokemon");
 
   if (!task) {
     console.log('No tasks available to process.');

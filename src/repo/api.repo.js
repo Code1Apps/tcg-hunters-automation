@@ -12,8 +12,8 @@ class ApiRepo {
         }
     }
 
-    async getExpansionNewCardsTask() {
-        const url = `${this.apiUrl}/auto/task/process`;
+    async getExpansionNewCardsTask(game = "") {
+        const url = `${this.apiUrl}/auto/task/process?game=${game}`;
         const response = await fetch(url, {
             method: 'GET',
             headers: {
