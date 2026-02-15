@@ -6,4 +6,10 @@ npm-debug.log
 venv/
 __pycache__/
 *.py[cod]
+# Environment
 .env
+
+# Project specific
+outputs/
+logs/
+public/img/tmp/
