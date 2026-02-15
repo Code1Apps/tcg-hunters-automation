@@ -66,7 +66,7 @@ async function main() {
   const existingCards = task.newCards?.map((card) => card.number) ?? [];
   for (let i = 0; i < dataRows.length; i++) {
     const tr = dataRows[i];
-    const cols = $(tr).find('td,th');
+    const cols = $(tr).find('td:visible,th:visible');
     if (cols.length === 0) continue; // skip non-data rows
 
     let card = {
