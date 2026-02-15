@@ -1,4 +1,5 @@
 const fs = require('fs');
+require('dotenv').config();
 const path = require('path');
 const fetch = require('node-fetch');
 const cheerio = require('cheerio');
@@ -148,7 +149,7 @@ async function main() {
                 const filepath = path.join(imgDir, filename);
 
                 fs.writeFileSync(filepath, buffer);
-                card.image = filename; // Store filename instead of URL
+                card.image = process.env.AUTO_URL + '/img/tmp/' + filename; // Store filename instead of URL
                 console.log(`Downloaded: ${filename}`);
               }
             }
