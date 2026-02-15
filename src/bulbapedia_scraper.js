@@ -114,7 +114,7 @@ async function main() {
   }
 
   // Fetch and download images for valid cards
-  const imgDir = path.resolve(__dirname, '..', 'img', 'tmp');
+  const imgDir = path.resolve(__dirname, '..', 'public', 'img', 'tmp');
   if (!fs.existsSync(imgDir)) fs.mkdirSync(imgDir, { recursive: true });
 
   console.log(`Downloading images for ${cards.length} cards...`);
