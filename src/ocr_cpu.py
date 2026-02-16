@@ -88,11 +88,13 @@ def main():
     for img_p in image_files:
         try:
             # Load and process image
-            # PaddleOCR.ocr returns a list of results (one per image if not batch)
-            # result[0] is the list of lines for the image
-            result = ocr.ocr(str(img_p), cls=True)
+            # PaddleOCR.ocr returns a list of results.
+            # result[0] is the list of lines for the image.
+            # We remove cls=True here because it's already set in the constructor
+            # and triggers errors/warnings in newer versions.
+            result = ocr.ocr(str(img_p))
             
-            if not result or not result[0]:
+            if not result or result[0] is None:
                 print(f"⚠️ [{processed_count+1}/{len(image_files)}] No text found in {img_p.name}")
                 texts = []
             else:
