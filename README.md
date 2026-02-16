@@ -40,3 +40,18 @@ tail -f /var/www/auto.tcghunters.com/logs/cron.log
 - **Bulbapedia Scraper**: Automatically fetches new cards from Bulbapedia based on active tasks.
 - **Image Serving**: Optimized image serving with Nginx, caching, and CORS support.
 - **Automated Deployment**: GitHub Actions workflow for seamless updates.
+- **OCR Processing**: CPU-optimized OCR using PaddleOCR to extract text from card images.
+
+## 🔍 OCR Processing
+
+The project includes an OCR script to extract text from images in `public/img/tmp`.
+
+```bash
+# Run OCR on the default folder
+python src/ocr_cpu.py
+
+# Run OCR on a custom folder
+python src/ocr_cpu.py --folder public/img/some_other_folder
+```
+
+This will create a `.json` file for each image containing the extracted text, ordered from top-left to bottom-right.
