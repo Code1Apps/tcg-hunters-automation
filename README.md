@@ -44,9 +44,28 @@ tail -f /var/www/auto.tcghunters.com/logs/cron.log
 
 ## 🔍 OCR Processing
 
-The project includes an OCR script to extract text from images in `public/img/tmp`.
+The project includes an OCR script to extract text from images in `public/img/tmp`. It requires Python and PaddleOCR.
+
+### Setup (Virtual Environment)
 
 ```bash
+# Create a virtual environment
+python -m venv venv
+
+# Activate the venv (Windows)
+.\venv\Scripts\activate
+
+# Activate the venv (Linux/Server)
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### Usage
+
+```bash
+# Activate venv first if not already active
 # Run OCR on the default folder
 python src/ocr_cpu.py
 
