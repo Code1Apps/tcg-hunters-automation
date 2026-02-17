@@ -2,3 +2,5 @@ paddlepaddle
 paddleocr>=2.7.0
 opencv-python
 numpy<2.0.0
+onnxruntime
+ultralytics

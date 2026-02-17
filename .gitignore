@@ -11,5 +11,6 @@ __pycache__/
 
 # Project specific
 outputs/
+output/
 logs/
 public/img/tmp/
